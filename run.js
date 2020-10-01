@@ -42,7 +42,7 @@ async function simpan(target, last) {
     const client = new Instagram({ username, password, cookieStore })
     const login = await client.login()
 
-    if (login.authenticated != true) throw new Error('Login Failed')
+    if (login.authenticated != true) throw new Error('Login mu Gagal')
     while (true) {
 
       var target = fs.readFileSync("target.json", 'utf-8');
@@ -67,13 +67,13 @@ async function simpan(target, last) {
 
           const addcomment = await client.addComment({ mediaId: `${id}`, text: `${cmnt}` })
           if (addcomment.status == "ok") {
-            console.log(`[ ${moment().format('HH:mm:ss')} ] Commented ${cmnt} on ${url}`)
+            console.log(`[ ${moment().format('HH:mm:ss')} ] Has been Commented ${cmnt} on ${url}`)
           } else {
-            console.log(`[ ${moment().format('HH:mm:ss')} ] Failed to Comment ${cmnt} on ${url}`)
+            console.log(`[ ${moment().format('HH:mm:ss')} ] Failed to Commentary ${cmnt} on ${url}`)
           }
           await simpan(key, `${id}`)
         } else {
-          console.log(`[ ${moment().format('HH:mm:ss')} ] No New Post Found`)
+          console.log(`[ ${moment().format('HH:mm:ss')} ] Has No New Post Found`)
         }
         await delay(`${jeda}000`)
       }
